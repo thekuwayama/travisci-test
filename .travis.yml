@@ -1,8 +1,17 @@
 sudo: false
+
 language: ruby
+
 rvm:
   - 2.6.0
-before_install: 
+
+services:
+  - docker
+
+before_install:
+  - docker build -t openssl ./interop
   - gem install bundler -v 2.0.1
   - bundle install
+  - docker images
+
 script: bundle exec rake

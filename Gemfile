@@ -2,7 +2,6 @@
 
 source 'https://rubygems.org'
 
-gem 'openssl'
 gem 'rake'
 
 group :test do
