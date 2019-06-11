@@ -8,10 +8,14 @@ rvm:
 services:
   - docker
 
+addons:
+  apt:
+    packages:
+      - lsof
+
 before_install:
-  - docker build -t openssl ./interop
   - gem install bundler -v 2.0.1
   - bundle install
-  - docker images
+  - docker build -t openssl ./interop
 
 script: bundle exec rake
