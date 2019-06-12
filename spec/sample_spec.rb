@@ -31,11 +31,15 @@ RSpec.describe 'wait for s_server' do
                   + "--volume #{TMP_DIR}:/tmp " \
                   + "--publish #{PORT}:#{PORT} " \
                   + 'openssl ' + cmd)
+      puts 'before detach' + ('#' * 20)
       Process.detach(pid)
+      puts 'after detach' + ('#' * 20)
     end
 
     let(:one) do
+      puts 'before wait_to_listen' + ('#' * 20)
       wait_to_listen(PORT)
+      puts 'after wait_to_listen' + ('#' * 20)
 
       1
     end
